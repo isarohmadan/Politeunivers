@@ -1,0 +1,80 @@
+<?php if ( has_post_thumbnail() ) : ?>
+                                <img src="<?php the_post_thumbnail_url('medium'); ?>" alt="<?php the_title_attribute(); ?>" class="mb-4 object-cover rounded-md">
+                            <?php endif; ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            
+                <?php if (get_field('image_url_1')): ?>
+                    <div class="swiper-slide"><img class="image-swiper" src="<?= get_field('image_url_1')?>" alt=""></div>
+                <?php endif; ?>
+                <?php if (get_field('image_url_2')): ?>
+                    <div class="swiper-slide"><img class="image-swiper" src="<?= get_field('image_url_2')?>" alt=""></div>
+                <?php endif; ?>
+                <?php if (get_field('image_url_3')): ?>
+                    <div class="swiper-slide"><img class="image-swiper" src="<?= get_field('image_url_3')?>" alt=""></div>
+                <?php endif; ?>
+                <?php if (get_field('image_url_4')): ?>
+                    <div class="swiper-slide"><img class="image-swiper" src="<?= get_field('image_url_4')?>" alt=""></div>
+                <?php endif; ?>
+                <?php if (get_field('image_url_5')): ?>
+                    <div class="swiper-slide"><img class="image-swiper" src="<?= get_field('image_url_5')?>" alt=""></div>
+                <?php endif; ?>
+                <?php if (get_field('image_url_6')): ?>
+                    <div class="swiper-slide"><img class="image-swiper" src="<?= get_field('image_url_6')?>" alt=""></div>
+                <?php endif; ?>
+                <?php if (get_field('image_url_7')): ?>
+                    <div class="swiper-slide"><img class="image-swiper" src="<?= get_field('image_url_7')?>" alt=""></div>
+                <?php endif; ?>
+                <?php if (get_field('image_url_8')): ?>
+                    <div class="swiper-slide"><img class="image-swiper" src="<?= get_field('image_url_8')?>" alt=""></div>
+                <?php endif; ?>
+                <?php if (get_field('image_url_9')): ?>
+                    <div class="swiper-slide"><img class="image-swiper" src="<?= get_field('image_url_9')?>" alt=""></div>
+                <?php endif; ?>
+                <?php if (get_field('image_url_10')): ?>
+                    <div class="swiper-slide"><img class="image-swiper" src="<?= get_field('image_url_10')?>" alt=""></div>
+                <?php endif; ?>
+                <?php if (get_field('image_url_11')): ?>
+                    <div class="swiper-slide"><img class="image-swiper" src="<?= get_field('image_url_11')?>" alt=""></div>
+                <?php endif; ?>
+                <?php if (get_field('image_url_12')): ?>
+                    <div class="swiper-slide"><img class="image-swiper" src="<?= get_field('image_url_12')?>" alt=""></div>
+                <?php endif; ?>
+                <?php if (get_field('image_url_13')): ?>
+                    <div class="swiper-slide"><img class="image-swiper" src="<?= get_field('image_url_13')?>" alt=""></div>
+                <?php endif; ?>
+                <?php if (get_field('image_url_14')): ?>
+                    <div class="swiper-slide"><img class="image-swiper" src="<?= get_field('image_url_14')?>" alt=""></div>
+                <?php endif; ?>
+                <?php if (get_field('image_url_15')): ?>
+                    <div class="swiper-slide"><img class="image-swiper" src="<?= get_field('image_url_15')?>" alt=""></div>
+                <?php endif; ?>
+                <?php if (get_field('image_url_16')): ?>
+                    <div class="swiper-slide"><img class="image-swiper" src="<?= get_field('image_url_16')?>" alt=""></div>
+                <?php endif; ?>
+                <?php if (get_field('image_url_17')): ?>
+                    <div class="swiper-slide"><img class="image-swiper" src="<?= get_field('image_url_17')?>" alt=""></div>
+                <?php endif; ?>
+                <?php if (get_field('image_url_18')): ?>
+                    <div class="swiper-slide"><img class="image-swiper" src="<?= get_field('image_url_18')?>" alt=""></div>
+                <?php endif; ?>
+                <?php if (get_field('image_url_19')): ?>
+                    <div class="swiper-slide"><img class="image-swiper" src="<?= get_field('image_url_19')?>" alt=""></div>
+                <?php endif; ?>
+                <?php if (get_field('image_url_20')): ?>
+                    <div class="swiper-slide"><img class="image-swiper" src="<?= get_field('image_url_20')?>" alt=""></div>
+                <?php endif; ?>
+                <?php if (get_field('image_url_21')): ?>
+                    <div class="swiper-slide"><img class="image-swiper" src="<?= get_field('image_url_21')?>" alt=""></div>
+                <?php endif; ?>

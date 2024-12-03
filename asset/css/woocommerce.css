@@ -1,0 +1,415 @@
+#primary{
+    margin-top: 0.5rem !important;
+}
+#add_payment_method .wc-proceed-to-checkout a.checkout-button, .woocommerce-cart .wc-proceed-to-checkout a.checkout-button, .woocommerce-checkout .wc-proceed-to-checkout a.checkout-button{
+    background: #000 !important;
+    color: white !important;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 1rem 0;
+}
+.woocommerce-loop-product__title{
+    text-align: center;
+    color: black;
+}
+.woocommerce-Price-amount{
+    color: black;
+}
+.price{
+    text-align: center;
+    color: black;
+}
+.summary .product_title{
+    margin: 0;
+    padding: 0;
+    line-height: normal;
+    font-size: large;
+    color: black;
+}
+.summary .price{
+    color: black;
+    text-align: left;
+}
+.summary .price span{
+    font-size: medium;
+}
+
+.in-stock{
+    padding: 0 0 10px;
+    color: black !important;
+}
+
+.single_add_to_cart_button{
+    background: #000 !important;
+}
+
+.site-main {
+    width: 90%;
+    margin: auto;
+}
+
+/* .product > .main-product-single > *{
+    border: 2px solid black;
+} */
+.product{
+    padding-top: 1rem;
+}
+
+/* .variations label {
+    display: ;
+} */
+
+.variations tbody tr{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin: 1rem 0 0 0;
+}
+.variations tbody tr .value ul {
+    display: flex;
+    gap: 0.5rem;
+}
+.variations tbody tr .value ul .variable-item  {
+    border: 1px solid black;
+    padding: 0 0.5rem;
+    transition: 0.3s;
+}
+.variations tbody tr .value ul .variable-item:hover  {
+    background: black;
+    color: white;
+}
+
+.variations .label *{
+    font-weight: normal;
+}
+
+.variations tbody tr .value ul .selected  {
+    background: black;
+    color: white;
+}
+
+
+.woocommer{
+    display: none;
+}
+
+
+/* Styling untuk item yang out of stock */
+.variable-item.disabled {
+    background-color: #b1b1b1 !important; /* Background abu-abu terang */
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Optional: Tambahkan hover text */
+.variable-item.disabled:hover::after {
+    content: 'Out of Stock';
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(121, 57, 57, 0.8);
+    color: white;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 12px;
+    white-space: nowrap;
+    z-index: 2;
+}
+
+/* Pastikan text di dalam button tetap terlihat jelas */
+.variable-item.disabled .variable-item-span {
+    color: #000000;
+}
+
+
+/* checkout */
+
+/* Main Checkout Container */
+.woocommerce-checkout {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Checkout Headers */
+.woocommerce-checkout h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+/* Form Fields Container */
+.woocommerce-billing-fields__field-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+/* Full Width Fields */
+.form-row-wide {
+    grid-column: 1 / -1;
+}
+
+/* Form Fields */
+.form-row {
+    margin-bottom: 1rem;
+}
+
+.form-row label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.form-row .required {
+    color: #e2401c;
+    text-decoration: none;
+}
+
+.form-row .optional {
+    color: #767676;
+    font-size: 0.9em;
+}
+
+/* Input Fields */
+.input-text, 
+.select2-container .select2-selection--single {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.input-text:focus,
+.select2-container--focus .select2-selection--single {
+    border-color: #666;
+    outline: none;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+}
+
+/* Select2 Customization */
+.select2-container .select2-selection--single {
+    height: auto;
+    min-height: 45px;
+    display: flex;
+    align-items: center;
+}
+
+.select2-container .select2-selection__rendered {
+    line-height: normal;
+    padding-left: 0.75rem;
+}
+
+.select2-container .select2-selection__arrow {
+    height: 100%;
+    top: 0;
+    right: 0.5rem;
+}
+
+/* Error States */
+.woocommerce-invalid .input-text,
+.woocommerce-invalid .select2-selection {
+    border-color: #e2401c;
+    background-color: #fff6f6;
+}
+
+/* Success States */
+.woocommerce-validated .input-text,
+.woocommerce-validated .select2-selection {
+    border-color: #6dc22e;
+}
+
+
+
+/* Phone and Email Fields */
+#billing_phone_field,
+#billing_email_field {
+    margin-top: 1rem;
+}
+
+/* Placeholder Text */
+.input-text::placeholder {
+    color: #999;
+    font-size: 0.9em;
+}
+
+/* Label Required Asterisk */
+label .required {
+    margin-left: 4px;
+}
+
+/* Select2 Dropdown when Open */
+.select2-container--open .select2-dropdown {
+    border-color: #666;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+
+.related{
+    clear: both;
+    color: black !important;
+    margin: 3rem 0;
+}
+.related h2{
+    /* text color black */
+    font-size: 2rem;
+    color: black !important;
+}
+
+
+.woocommerce div.product div.images{
+    margin-bottom: 0;
+}
+
+
+
+
+.variations tbody tr .value{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+#pa_size{
+    color: black;
+    min-width: 20% !important;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    border: 1px solid black;
+}
+#pa_size option{
+    color: black;
+    padding: 0 0 10px;
+}
+
+#pa_color{
+    color: black;
+    min-width: 20% !important;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    border: 1px solid black;
+}
+#pa_color option{
+    color: black;
+    padding: 0 0 10px;
+}
+
+
+.woocommerce ul.products li.product a img{
+    margin: 0;
+}
+
+
+    .woocommerce-ordering > .orderby{
+        padding: 2rem;
+        border: 1px solid black;
+    }
+
+    .woocommerce .woocommerce-ordering select{
+        color: black;
+        padding: 0.5rem;
+        border: 1px solid black;
+    }
+
+    .woocommerce .woocommerce-ordering select option{
+    color: black;
+    padding: 0.5rem;
+    border: 1px solid black;
+    border-radius: 0px;
+}
+
+.woocommerce-variation-add-to-cart {
+    display: flex;
+    flex-direction: column; /* Mengatur elemen di kolom */
+    gap: 1rem; /* Memberikan jarak antar elemen */
+}
+
+.woocommerce-variation-add-to-cart .quantity {
+    margin-bottom: 10px; /* Jarak di bawah elemen quantity */
+}
+
+.single_add_to_cart_button {
+    align-self: flex-start; /* Menyelaraskan tombol ke awal */
+    padding: 0.5rem 1rem; /* Padding kiri dan kanan */
+    font-weight: normal !important;
+    border-radius: 0 !important;
+}
+
+.quantity .qty {
+    /* width: 30%; */
+    border: 1px solid black;
+}
+
+
+.single_variation_wrap{
+    display: flex;
+    flex-direction: column;
+    flex-direction: column-reverse;
+    gap: 0.6rem;
+}
+
+.custom-message{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+
+.variable-item-contents{
+    padding: 0 1rem;
+    border-radius: 0 !important;
+}
+
+
+
+/* phone resolution */
+@media only screen and (max-width: 768px) {
+    .woocommerce-ordering{
+        width: 100%;
+    }
+    .woocommerce-ordering > .orderby{
+        width: 100%;
+    }
+    .woocommerce .woocommerce-ordering select{
+        width: 100%;
+    }
+    .single_add_to_cart_button {
+        width: 100%;
+        
+    }
+    .custom-message{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .woocommerce-billing-fields__field-wrapper {
+        grid-template-columns: 1fr;
+    }
+    
+    .woocommerce-checkout {
+        padding: 1rem;
+    }
+    
+    .form-row-first,
+    .form-row-last {
+        grid-column: 1 / -1;
+    }
+
+    .variations tbody tr .value ul .variable-item  {
+        border: 1px solid black;
+        padding: 0;
+        transition: 0.3s;
+    }
+    
+}

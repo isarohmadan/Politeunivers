@@ -1,0 +1,33 @@
+#content{
+    height: 100vh;
+    color: black;
+}
+
+
+
+.wrapper-retailers{
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 2rem;
+
+}
+.retailers-headers{
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #000;
+}
+
+.retailers-headers h1{
+    font-size: 3rem;
+}
+
+.retailers-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 2rem;
+}
+.header-country{
+    grid-column: span 4;
+    text-decoration: underline;
+    margin: 1rem 0 0 0;
+}
+

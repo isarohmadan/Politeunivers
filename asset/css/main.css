@@ -1,0 +1,504 @@
+/* DEFAULT CODE */
+
+
+* {
+    box-sizing: border-box;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+body {
+    font-family: 'bembo_regular', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* scroll hidden */
+
+html {
+    overflow-y: scroll;
+    
+}
+
+
+.text-white{
+    color: white;
+}
+
+
+
+/* NAV MENUS */
+#site-navigation{
+    position: -webkit-sticky; /* Safari */
+    background-color: white; /* Agar latar belakang tidak transparan */
+}
+#primary-menu{
+    display: flex;
+    height: 80%;
+    z-index: 100;
+    align-items: center;
+}
+
+.category-item{
+    flex: 1;
+}
+
+
+
+
+/* swiper */
+.swiper-container {
+    width: 100%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* swipper arrow */
+
+.swiper-button-next,
+.swiper-button-prev {
+    right:10px;
+    padding: 20px;
+    color: #000 !important;
+    fill: black !important;
+    stroke: black !important;
+}
+ .swiper-wrapper > * {
+    border: 1px solid black;
+}
+
+.hidden{
+    display: none;
+    opacity: 0;
+}
+.show{
+    display: grid;
+    opacity: 100%;
+}
+
+
+#primary{
+    margin: 1.5rem 0;
+}
+.checkout-button , .woocommerce_checkout_place_order {
+    background: #000 !important;
+    color: white !important;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+
+
+
+.jumbotron-blog-info{
+    height: 100vh;
+}
+
+
+
+
+
+
+
+/* Ganti warna tombol "Place Donation" */
+.woocommerce .checkout #place_order {
+    background-color: #000; /* Warna latar tombol */
+    color: #FFFFFF; /* Warna teks tombol */
+    border: none; /* Menghapus border jika diinginkan */
+}
+
+.woocommerce .checkout #place_order:hover {
+    background-color: #000; /* Warna tombol saat di-hover */
+}
+
+.woocommerce-cart-form{
+    width: 100%;
+}
+.entry-content .woocommerce{
+    width: 80%;
+}
+
+
+
+#content
+{
+    padding-top:5rem
+}
+
+/* footer menus */
+#footer-menu{
+    display: flex;
+    visibility: hidden;
+    align-items: center;
+}
+#footer-menu * {
+    font-family: 'Montserrat', sans-serif;
+    padding: 0.5rem 1.5rem;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+#footer-menu *:hover{
+    color: grey;
+}
+
+
+/* if mini jumbotron was hovered then element inside it will be show an underline */
+
+
+.banner-about{
+    width: 90%;
+    margin: 0 auto;
+    height: 40rem;
+    position: relative;
+}
+
+.main-image{
+    width: 100%;
+    height: 100%;
+}
+
+.inline-description{
+    position: absolute;
+    width: 25%;
+    color: white;
+    left: 0;
+    bottom: 0;
+    margin: 2rem;
+}
+
+
+.main-about-jumbotron{
+   width: 90% !important;
+   margin: 1rem auto;
+   display: grid;
+   grid-template-columns: 5fr 6fr;
+}
+
+.description-about-jumbotron{
+    display: flex;
+    max-width: 80%;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 1rem;
+}
+
+.description-about-jumbotron *{
+    
+    text-align:justify;
+}
+
+.wrapper-about-description *{
+    margin: 0.8rem 0;
+    font-size: small;
+    transition: max-height 0.5s ease-in-out;
+}
+
+.wrapper-about-description a{
+    font-weight: bold;
+    font-family: 'bembo_regular', sans-serif;
+    text-decoration: underline;
+}
+
+.wrapper-about-description a:hover{
+    color: #666;
+}
+
+
+
+#read-more-btn{
+    background: none;
+    color: black;
+    text-decoration: underline;
+    cursor: pointer;
+    text-align: left;
+    border: none;
+    display: none;
+}
+.text-short{
+    transition: max-height 0.5s ease-in-out;
+}
+.text-full{
+    transition: max-height 0.5s ease-in-out;
+}
+
+#banner_promotion_2 {
+    display: none;
+}
+
+/* Input Fields */
+.input-text, 
+.select2-container .select2-selection--single {
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.input-text:focus,
+.select2-container--focus .select2-selection--single {
+    border-color: #666;
+    outline: none;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+}
+
+
+
+
+.select2-container .select2-selection--single {
+    height: auto;
+    min-height: 45px;
+    display: flex;
+    align-items: center;
+}
+
+.select2-container .select2-selection__rendered {
+    line-height: normal;
+    padding-left: 0.75rem;
+}
+
+.select2-container .select2-selection__arrow {
+    height: 100%;
+    top: 0;
+    right: 0.5rem;
+}
+
+/* Error States */
+.woocommerce-invalid .input-text,
+.woocommerce-invalid .select2-selection {
+    border-color: #e2401c;
+    background-color: #fff6f6;
+}
+
+/* Success States */
+.woocommerce-validated .input-text,
+.woocommerce-validated .select2-selection {
+    border-color: #6dc22e;
+}
+#add_payment_method #payment div.payment_box, .woocommerce-cart #payment div.payment_box, .woocommerce-checkout #payment div.payment_box{
+    margin: 1em 1rem !important;
+}
+
+
+@media screen and (min-device-width: 768) and (max-width: 980px) {
+    .jumbotron-blog-info{
+        height: auto;
+    }
+  }
+
+
+
+@media screen and (max-width: 768px) {
+    #read-more-btn {
+        display: none; /* Sembunyikan tombol di layar lebih besar */
+    }
+
+    .swiper{
+        height: 100% !important;
+    }
+
+    .text-short {
+        max-height: 120px;
+        overflow: hidden;
+        transition: max-height 0.5s ease-in-out;
+    }
+    #read-more-btn {
+        display: block; /* Tampilkan tombol hanya di layar kecil */
+    }
+
+    .mini-jumbotron{
+        max-height: 100vh;
+    }
+
+    .banner-about{
+        height: 100vh;
+        width: 100%;
+    }
+    .main-about-jumbotron{
+        grid-template-columns: 2fr 0;
+        min-width: 100%;
+        gap: 2rem 0;
+     }
+     .image-about-jumbotron{
+         width: 100%;
+     }
+     .image-about-jumbotron{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+     
+     .description-about-jumbotron{
+         grid-column: 1;
+         max-width: 100%;
+     }
+
+    .inline-description{
+        position: absolute;
+        width: 70%;
+        color: white;
+        left: 0;
+        bottom: 0;
+        margin: 2rem;
+    }
+
+
+    
+.openbtn{
+    font-size: larger;
+}
+
+    #content
+    {
+        padding-top:2rem
+    }
+    #navigation-wrapper-main{
+        display: flex;
+        width: 100%;
+        margin : 0 1rem 
+    }
+    #mobile-menu-overlay{
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+        top: -100%;
+        left: 0;
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.3s ease-in-out;
+        z-index: 999;
+        background-color: black;
+    }
+    #mobile-menu-overlay.active {
+        top: 0;
+        opacity: 1;
+        visibility: visible;
+    }
+    #mobile-menu-overlay-wrapper{
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+    #mobile-menu-overlay-wrapper > * {
+        margin: 1rem 0;
+    }
+    
+    #primary-menu{
+        display: none !important;
+    }
+    #site-navigation{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 0.7rem 0;
+
+    }
+
+    .closebtn{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        margin: 1.5rem;
+    }
+
+
+    .list-items-parents {
+        margin: 15px 0;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.3s ease-in-out;
+    }
+
+    #mobile-menu-overlay.active .list-items-parents {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .list-items-parents a:hover {
+        text-decoration: underline;
+    }
+
+
+    .list-items-parents a {
+        color: white;
+        text-decoration: none;
+        font-size: 24px;
+    }
+
+        /* Stagger animation for menu items */
+    .list-items-parents:nth-child(1) { transition-delay: 0.1s; }
+    .list-items-parents:nth-child(2) { transition-delay: 0.2s; }
+    .list-items-parents:nth-child(3) { transition-delay: 0.3s; }
+    .list-items-parents:nth-child(4) { transition-delay: 0.4s; }
+    .list-items-parents:nth-child(5) { transition-delay: 0.5s; }
+
+    #banner_promotion_1 {
+        display: block;
+    }
+    #banner_promotion_2 {
+        display: none;
+    }
+
+
+}
+
+@media screen and (max-width: 768px){
+    .jumbotron-blog-info{
+        height: auto;
+        grid: 1fr 1fr;
+    }    
+}
+
+/* Media Query  */
+
+@media screen and (min-width: 768px) {
+
+    #site-navigation{
+        position: relative;
+    }
+    .openbtn{
+        display: none;
+    }
+    .text-full {
+        max-height: 1000px; /* Batasi tinggi untuk versi singkat hanya di layar kecil */
+        overflow: visible;
+        transition: max-height 0.5s ease-in-out;
+    }
+    #mobile-menu-overlay{
+        display: none !important;
+    }
+    #footer-menu{
+        visibility: visible;
+    }
+    #banner_promotion_1 {
+        display: none;
+    }
+    #banner_promotion_2 {
+        display: block;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+

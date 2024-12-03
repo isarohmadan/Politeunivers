@@ -1,0 +1,138 @@
+/* Page wrapper styling */
+.page-wrapper {
+    min-height: 100vh;
+    position: relative;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* Background wrapper and image styling */
+.background-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -999;
+    overflow: hidden;
+}
+
+#contact-background {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.2);
+    min-width: 100%;
+    min-height: 100vh;
+    width: auto;
+    height: auto;
+    object-fit: cover;
+    opacity: 0.9;
+}
+
+/* Contact form container styling */
+#content-contact {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.92);
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    position: relative;
+    z-index: 1;
+    backdrop-filter: blur(5px);
+}
+
+/* Header styling */
+.header {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #333333;
+}
+
+/* Form Elements Styling */
+.wpcf7-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Name and Email Container */
+.name-email-container {
+    display: flex;
+    gap: 1rem;
+}
+
+.name-email-container p {
+    flex: 1;
+    margin: 0;
+}
+
+.wpcf7-form p {
+    margin: 0;
+}
+
+.wpcf7-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #555555;
+}
+
+/* Input Fields Styling */
+.wpcf7-text,
+.wpcf7-textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.wpcf7-text:focus,
+.wpcf7-textarea:focus {
+    outline: none;
+    border-color: #000000;
+    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+    background-color: #ffffff;
+}
+
+/* Submit Button Styling */
+.wpcf7-submit {
+    background-color: #000000;
+    color: white;
+    padding: 0.75rem 2rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    width: 100%;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.wpcf7-submit:hover {
+    background-color: #333333;
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #content-contact {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+    
+    .header {
+        font-size: 1.75rem;
+    }
+    
+    .name-email-container {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+}

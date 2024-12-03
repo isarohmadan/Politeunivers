@@ -1,0 +1,49 @@
+#content{
+    padding-top: 0rem !important;
+
+}
+
+.width-in-about{
+    width: 95%;
+    margin: 0 auto;
+    display: flex;
+    height: 100vh;
+    align-items: center;
+}
+
+.blank-about-wrapper{
+    width: 50%;
+}
+
+.blank-header-description h1 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: #000;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.blank-description *{
+    margin: 1rem 0;
+    font-size: 1rem;
+    font-weight: 300;
+    color: #000;
+}
+
+
+@media screen and (max-width: 768px){
+    .blank-about-wrapper{
+        width: 100%;
+    }
+    .blank-header-description h1 {
+        text-align: center;
+        font-size: 2rem;
+    }
+    
+    .blank-description *{
+        
+        text-align: justify;
+        font-size: 0.8rem;
+    }
+}
+
