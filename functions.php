@@ -153,6 +153,11 @@ function politeunivers_enqueue_script() {
 add_action( 'wp_enqueue_scripts', 'politeunivers_enqueue_script' );
 
 
+function theme_enqueue_styles() {
+    wp_enqueue_style('tailwind-style', get_template_directory_uri() . '/asset/css/style.css', [], '1.0.0', 'all');
+}
+add_action('wp_enqueue_scripts', 'theme_enqueue_styles');
+
 
 /**
  * Enqueue scripts and styles.
@@ -278,26 +283,36 @@ add_action('wp_enqueue_scripts', 'custom_enqueue_variation_swatches_scripts');
 
 
 function custom_enqueue_gallery_scripts() {
-    // Periksa apakah halaman saat ini menggunakan template 'template-gallery.php'
-    if (is_page_template('templates/lookbooks.php') || is_page_template('templates/lookbooks-swiper.php') || is_page_template('templates/lookbooks-gallery2.php')) {
-	    wp_enqueue_script('gallery-script', get_template_directory_uri() . '/js/lookbook.js', array(), null, true);
+  // Periksa apakah halaman saat ini menggunakan template 'template-gallery.php'
+    if (is_page_template('templates/lookbooks-swiper.php') || is_page_template('templates/lookbooks-gallery2.php')) {
+	    wp_enqueue_script('gallery-script', get_template_directory_uri() . '/js/lookbooks.js', array(), null, true);
         wp_enqueue_style('gallery-style', get_template_directory_uri() . '/asset/css/lookbooks.css');
     }
 	if(is_page_template('templates/contact-me.php')){
 		wp_enqueue_style('gallery-style', get_template_directory_uri() . '/asset/css/form.css');
 	}
-	if(is_page_template('templates/about.php')){
+	if(is_page_template('templates/contact.php')){
 		wp_enqueue_script('gallery-script', get_template_directory_uri() . '/js/about.js', array(), null, true);
 	}
-	if(is_page_template( 'templates/retailers.php' )){
+		if(is_page_template( 'templates/retailers.php' )){
 		wp_enqueue_style('retailers-style', get_template_directory_uri() . '/asset/css/retailers.css');
 	}
-	if(is_page_template( 'templates/about-blank.php' )){
+		if(is_page_template( 'templates/about-blank.php' )){
 		wp_enqueue_style('blank-style', get_template_directory_uri() . '/asset/css/blank.css');
 	}
 }
+
 add_action('wp_enqueue_scripts', 'custom_enqueue_gallery_scripts');
 
+
+function custon_enqueue_archive() {
+	if (is_archive()) {
+		wp_enqueue_style('archive-style', get_template_directory_uri() . '/asset/css/lookbooks.css');
+		wp_enqueue_script('archive-script', get_template_directory_uri() . '/js/archive-lookbooks.js', array(), null, true);
+	}
+}
+
+add_action('wp_enqueue_scripts', 'custon_enqueue_archive');
 
 
 // add javascript main js
@@ -313,26 +328,6 @@ function custom_wc_ajax_variation_threshold( $qty, $product ) {
 	}
 	
 	add_filter( 'woocommerce_ajax_variation_threshold', 'custom_wc_ajax_variation_threshold', 100, 2 );
-
-
-
-// include css and js for achieve page if the page is archieve php 
-function custom_enqueue_archive_scripts() {
-	// Periksa apakah halaman saat ini menggunakan template 'template-gallery.php'
-	if (is_archive()) {
-		wp_enqueue_style('archive-style', get_template_directory_uri() . '/asset/css/lookbooks.css');
-	}
-}
-add_action('wp_enqueue_scripts', 'custom_enqueue_archive_scripts');
-
-
-
-
-
-
-
-
-
 
 /**
  * Custom template tags for this theme.
@@ -357,6 +352,16 @@ add_action('init', function() {
         error_log('Navi class berhasil dimuat');
     }
 });
+
+
+// include css and js for achieve page if the page is archieve php 
+function custom_enqueue_archive_scripts() {
+	// Periksa apakah halaman saat ini menggunakan template 'template-gallery.php'
+	if (is_archive()) {
+		wp_enqueue_style('archive-style', get_template_directory_uri() . '/asset/css/lookbooks.css');
+	}
+}
+add_action('wp_enqueue_scripts', 'custom_enqueue_archive_scripts');
 
 
     // // Remove the Product SKU from Product Single Page

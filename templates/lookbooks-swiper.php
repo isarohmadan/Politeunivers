@@ -7,7 +7,7 @@ Template Post Type: lookbooks
 
 <?php get_header(); ?>
 
-
+<div class="wrapper-new-arrival h-screen flex items-center my-3">
 <div class="new-arrival w-[96%] max-h-[100vh] py-6 mx-auto">
             <!-- Slider main container -->
         <div class="swiper h-full">
@@ -38,6 +38,8 @@ Template Post Type: lookbooks
         </div>
         </div> 
         </div>
+
+    </div>
 
 
 

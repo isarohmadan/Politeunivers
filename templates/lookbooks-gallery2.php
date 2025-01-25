@@ -13,9 +13,9 @@ Template Post Type: lookbooks
 </div>
 <div class="grid-lookbooks-gallery-2">
     <div class="logo-image">
-        <img src="http://politeuniversnewest.local/wp-content/uploads/2024/10/output-onlinepngtools.png" alt="">
+        <img src="<?=get_field('logo_gallery')?>" alt="">
     </div>
-    <?php for ($i = 1; $i <= 12; $i++): ?>
+    <?php for ($i = 0; $i <= 12; $i++): ?>
         <?php if (get_field('image_url_'.$i)): ?>
         <div class="<?= get_field('select_'.$i)?>">
             <img src="<?= get_field('image_url_'. $i) ?>" alt="">

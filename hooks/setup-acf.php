@@ -25,6 +25,9 @@
 // };
 // add_action('after_setup_theme', 'p_setup');
 
+wp_enqueue_style('acf-input', get_template_directory_uri() . '/inc/acf/assets/build/css/acf-input.min.css', array(), '1.0.0');
+wp_enqueue_script('acf-pro-input', get_template_directory_uri() . '/inc/acf/assets/build/js/pro/acf-pro-input.min.js', array('jquery'), '1.0.0', true);
+
 
 /** Advanced Cust om Fields Distribution **/
 // Customize ACF path
@@ -44,8 +47,6 @@ function p_acf_settings_dir($dir) {
 // Hide ACF field group menu item
 //add_filter('acf/settings/show_admin', '__return_false');
 
-// Include ACF
-include_once(get_stylesheet_directory().'/inc/acf/acf.php');
 
 // Add ACF Option Page
 if( function_exists('acf_add_options_page') ) {
@@ -250,160 +251,6 @@ if (function_exists('acf_add_local_field_group')):
 	});
 
 
-
-
-
-
-	// Registrasi Custom Post Type Size Charts
-	function register_size_charts() {
-		register_post_type('size_charts', 
-			array(
-				'labels' => array(
-					'name' => __('Size Charts'),
-					'singular_name' => __('Size Chart'),
-					'add_new' => __('Add New Size Chart'),
-					'add_new_item' => __('Add New Size Chart'),
-					'edit_item' => __('Edit Size Chart'),
-					'new_item' => __('New Size Chart'),
-					'view_item' => __('View Size Chart'),
-					'search_items' => __('Search Size Charts')
-				),
-				'public' => true,
-				'has_archive' => false,
-				'publicly_queryable' => true,
-				'show_ui' => true,
-				'show_in_menu' => true,
-				'query_var' => true,
-				'rewrite' => array('slug' => 'size-charts'),
-				'capability_type' => 'post',
-				'hierarchical' => false,
-				'menu_position' => null,
-				'supports' => array('title', 'thumbnail'),
-				'menu_icon' => 'dashicons-format-image'
-			)
-		);
-	}
-	add_action('init', 'register_size_charts');
-	
-	// Tambahkan kolom preview gambar di admin
-	function size_charts_columns($columns) {
-		$columns['size_chart_image'] = __('Size Chart Image');
-		return $columns;
-	}
-	add_filter('manage_size_charts_posts_columns', 'size_charts_columns');
-	
-	function size_charts_column_content($column, $post_id) {
-		if ($column == 'size_chart_image') {
-			$image = get_the_post_thumbnail($post_id, 'thumbnail');
-			echo $image ? $image : 'No image';
-		}
-	}
-	add_action('manage_size_charts_posts_custom_column', 'size_charts_column_content', 10, 2);
-	
-	// Tambah meta box di produk untuk memilih size chart
-	function add_size_chart_meta_box() {
-		add_meta_box(
-			'size_chart_selection', 
-			'Size Chart Selection', 
-			'render_size_chart_meta_box', 
-			'product', 
-			'side', 
-			'default'
-		);
-	}
-	add_action('add_meta_boxes', 'add_size_chart_meta_box');
-	
-	// Render meta box untuk memilih size chart
-	function render_size_chart_meta_box($post) {
-		$size_charts = get_posts(array(
-			'post_type' => 'size_charts',
-			'numberposts' => -1
-		));
-	
-		$selected_size_chart = get_post_meta($post->ID, '_custom_size_chart', true);
-	
-		echo '<select name="custom_size_chart">';
-		echo '<option value="">Pilih Size Chart</option>';
 		
-		foreach ($size_charts as $chart) {
-			$selected = ($selected_size_chart == $chart->ID) ? 'selected' : '';
-			echo "<option value='{$chart->ID}' {$selected}>{$chart->post_title}</option>";
-		}
-		
-		echo '</select>';
-	}
 	
-	// Simpan size chart yang dipilih
-	function save_size_chart_selection($post_id) {
-		if (isset($_POST['custom_size_chart'])) {
-			update_post_meta($post_id, '_custom_size_chart', sanitize_text_field($_POST['custom_size_chart']));
-		}
-	}
-	add_action('save_post', 'save_size_chart_selection');
-	
-	// Fungsi untuk mendapatkan size chart yang tepat
-	function get_priority_size_chart($product_id) {
-		// Prioritas 1: Size chart khusus produk
-		$custom_product_chart = get_post_meta($product_id, '_custom_size_chart', true);
-		if ($custom_product_chart) {
-			return $custom_product_chart;
-		}
-	
-		// Prioritas 2: Size chart berdasarkan kategori produk
-		$product_categories = get_the_terms($product_id, 'product_cat');
-		
-		if ($product_categories) {
-			foreach ($product_categories as $category) {
-				$category_chart = get_field('size_chart', 'product_cat_' . $category->term_id);
-				if ($category_chart) {
-					return $category_chart;
-				}
-			}
-		}
-	
-		return null;
-	}
-	
-	// Tampilkan size chart di halaman produk
-	function display_size_chart() {
-		global $product;
-		
-		$size_chart_id = get_priority_size_chart($product->get_id());
-		
-		if ($size_chart_id) {
-			echo '<div class="size-chart-container">';
-			echo wp_get_attachment_image($size_chart_id, 'full');
-			echo '</div>';
-		}
-	}
-	add_action('woocommerce_single_product_summary', 'display_size_chart', 25);
-	
-	// ACF: Tambahkan field size chart di kategori produk
-	function add_size_chart_to_product_category() {
-		if (function_exists('acf_add_local_field_group')) {
-			acf_add_local_field_group(array(
-				'key' => 'group_product_category_size_chart',
-				'title' => 'Size Chart Settings',
-				'fields' => array(
-					array(
-						'key' => 'field_size_chart',
-						'label' => 'Default Size Chart',
-						'name' => 'size_chart',
-						'type' => 'post',
-						'post_type' => 'size_charts'
-					)
-				),
-				'location' => array(
-					array(
-						array(
-							'param' => 'taxonomy',
-							'operator' => '==',
-							'value' => 'product_cat'
-						)
-					)
-				)
-			));
-		}
-	}
-	add_action('init', 'add_size_chart_to_product_category');
 

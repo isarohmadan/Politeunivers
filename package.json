@@ -1,0 +1,30 @@
+{
+  "name": "politeunivers",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000P\u0000o\u0000l\u0000i\u0000t\u0000e\u0000u\u0000n\u0000i\u0000v\u0000e\u0000r\u0000s\u0000\r\u0000 \u0000",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx tailwindcss -o asset/css/style.css --minify",
+    "watch": "npx tailwindcss -o asset/css/style.css --watch"
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/isarohmadan/Politeunivers.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/isarohmadan/Politeunivers/issues"
+  },
+  "homepage": "https://github.com/isarohmadan/Politeunivers#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.5.1"
+  },
+  "dependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}

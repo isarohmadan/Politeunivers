@@ -44,7 +44,7 @@ add_filter('woocommerce_product_add_to_cart_text', 'custom_add_to_cart_icon'); /
 add_filter('woocommerce_product_single_add_to_cart_text', 'custom_add_to_cart_icon'); // Untuk produk di halaman tunggal
 
 function custom_add_to_cart_icon($tabs) {
-    return $tabs = "add to cart !";
+    return $tabs = "add to cart";
 }
 
 // if the page was shop page then add this banner
@@ -55,44 +55,6 @@ function load_woocommerce_css_on_shop_page() {
     }
 }
 add_action( 'wp_enqueue_scripts', 'load_woocommerce_css_on_shop_page' );
-
-add_action( 'woocommerce_before_main_content', 'custom_banner_main_content',5);
-function custom_banner_main_content(){
-    if(is_shop() || is_product_category()){
-        // add your banner here
-        get_template_part('template-parts/layout/banner');
-    }else{
-        return;
-    }
-}
-
-
-
-add_filter('woocommerce_swatches_get_swatch_anchor_css_class', 'add_swatch_out_stock_class', 10, 2);
-
-function add_swatch_out_stock_class( $anchor_classes, $swatch_term ) {
-    if ( is_product() ) {
-        global $post;
-        $product = wc_get_product($post);
-
-        if ( $product->get_type() === 'variable' ) {
-            foreach( $product->get_available_variations() as $variation ) {
-                $product_variation = new WC_Product_Variation($variation['variation_id']);
-
-                if( $product_variation->get_stock_quantity() === 0 ) {
-                    foreach( $product_variation->get_variation_attributes() as $var_attribute) {
-                        if( $swatch_term->term_slug === $var_attribute) {
-                            $anchor_classes .= ' out-of-stock';
-                        }
-                    }
-                }
-            }
-        }
-    }
-    return $anchor_classes;
-}
-
-
 
 
 add_filter('woocommerce_get_image_size_single', 'custom_single_product_image_size');
@@ -160,79 +122,30 @@ function custom_template_loop_product_thumbnail(){
     echo '<img src="'.$image[0].'" alt="'.$product->get_name().'" />';
 }
 
-
-/**
- * Include a Post Template rule type
- */
-function acf_post_template_rule_type( $rule_types ) {
-  if ( version_compare( $GLOBALS['wp_version'], '4.7', '<' ) ) {
-      return $rule_types;
-  }
-  $rule_types['Post']['post_template'] =  __("Post Template",'acf');
-  return $rule_types;
+add_filter('loop_shop_columns', 'loop_columns', 999);
+if (!function_exists('loop_columns')) {
+	function loop_columns() {
+		return 3; // 3 products per row
+	}
 }
-add_filter('acf/location/rule_types', 'acf_post_template_rule_type', 10, 1);
 
-/**
- * Supply values for the Post Template rule type
- */
-function acf_post_template_rule_values ( $choices ) {
-  if ( version_compare( $GLOBALS['wp_version'], '4.7', '<' ) ) {
-      return $choices;
-  }
-  $args = array('public' => true, 'capability_type' => 'post');
-  $post_types = get_post_types( $args );
-  $post_templates = array( 'none' => 'None' );
-  foreach ($post_types as $key => $post_type) {
-    $post_templates = array_merge($post_templates, get_page_templates(null, $post_type) );
-  }
-  foreach( $post_templates as $k => $v ) {
-    $choices[ $v ] = $k;
-  }
-  return $choices;
-}
-add_filter( 'acf/location/rule_values/post_template', 'acf_post_template_rule_values', 10, 1 );
 
-/**
- * Match the rule type and edit screen
- */
-add_filter('acf/location/rule_match/post_template', 'acf_location_rules_match_post_template', 10, 3);
-function acf_location_rules_match_post_template( $match, $rule, $options ) {
-  if ( version_compare( $GLOBALS['wp_version'], '4.7', '<' ) ) {
-      return $match;
-  }
-  // copied from acf_location::rule_match_page_template (advanced-custom-fields-pro/core/location.php)
-
-  // bail early if not a post
-  if( !$options['post_id'] ) return false;
-  // vars
-  $page_template = $options['page_template'];
-  // get page template
-  if( !$page_template ) {
-    $page_template = get_post_meta( $options['post_id'], '_wp_page_template', true );
-  }
-
-  // get page template again
-  if( !$page_template ) {
-    $post_type = $options['post_type'];
-    if( !$post_type ) {
-      $post_type = get_post_type( $options['post_id'] );
+add_action( 'woocommerce_before_shop_loop_item_title', 'bbloomer_display_sold_out_loop_woocommerce' );
+ 
+function bbloomer_display_sold_out_loop_woocommerce() {
+    global $product;
+    if ( ! $product->is_in_stock() ) {
+        echo '<span class="soldout">Sold Out</span>';
     }
-    if( $post_type === 'page' ) {
-      $page_template = "default";
-    }
-  }
+} 
 
-  // compare
-  if( $rule['operator'] == "==" ) {
-    $match = ( $page_template === $rule['value'] );
-  } elseif( $rule['operator'] == "!=" ) {
-    $match = ( $page_template !== $rule['value'] );
-  }
-
-  // return
-  return $match;
+add_filter( 'woocommerce_variation_is_active', 'bbloomer_grey_out_variations_out_of_stock', 10, 2 );
+ 
+function bbloomer_grey_out_variations_out_of_stock( $is_active, $variation ) {
+    if ( ! $variation->is_in_stock() ) return false;
+    return $is_active;
 }
+
 
 add_action('woocommerce_after_shipping_rate', 'tampilkan_store_address_for_local_pickup', 10, 2);
 
@@ -280,13 +193,4 @@ function custom_conditional_shipping( $rates, $package ) {
     }
 
     return $rates;
-}
-
-
-
-add_filter('loop_shop_columns', 'loop_columns', 999);
-if (!function_exists('loop_columns')) {
-	function loop_columns() {
-		return 3; // 3 products per row
-	}
 }

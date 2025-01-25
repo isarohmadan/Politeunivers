@@ -28,10 +28,11 @@ document.addEventListener('DOMContentLoaded', function() {
         subMenu.classList.add('hidden');
       },200); // Tutup submenu setelah 1 detik
     });
-
   });
 
-function openNav() {
+
+
+ function openNav() {
     document.getElementById("mobile-menu-overlay").classList.add("active");
     document.body.style.overflow = "hidden";
 }
@@ -40,5 +41,3 @@ function closeNav() {
     document.getElementById("mobile-menu-overlay").classList.remove("active");
     document.body.style.overflow = "";
 }
-
-

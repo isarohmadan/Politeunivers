@@ -13,6 +13,23 @@ document.addEventListener('DOMContentLoaded', function() {
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev',
             },
+            autoplay: {
+                delay: 1500,
+            },
+        });
+
+        swiper.on('transitionEnd', function () {
+            let activeSlide = swiper.realIndex +1; // Index of Current active slide
+            let previousSlide = swiper.previousIndex -2; // Index of previous active slide
+            if (previousSlide == -1) { 
+                previousSlide = 0;
+            } else if (previousSlide == 
+                document.querySelectorAll('.swiper-slide').length) { 
+                // When swiper loops, slideChange 
+                // gets fired twice and messes up animations. This 
+                // prevents it from doing so.
+              return;
+            }
         });
     }
 

@@ -13,9 +13,7 @@ get_header();
 	<section id="primary">
 		<main id="main">
 
-			<div class="h-screen border relative">
-				
-				<img src="<?= get_template_directory_uri() . '/asset/images/bg.jpg'; ?>" alt="Cart" alt="">
+			<div class="h-screen relative">
 				<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
 					<h1 class="page-title text-center text-6xl">404</h1>
 					<h1 class="page-title text-center"><?php esc_html_e( 'Page Not Found', 'politeunivers' ); ?></h1>

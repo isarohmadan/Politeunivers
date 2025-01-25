@@ -6,7 +6,7 @@
 <div class="wrapper-retailers">
     <div class="retailers-headers">
         <h1 class="text-start font-bold text-black"><?= the_title();?></h1>
-        <?= get_field('description_retails')?>
+        <?= get_field('description_retailers')?>
     </div>
     <div class="retailers-grid">
             <h6 class="text-3xl header-country">

@@ -21,7 +21,7 @@ $primary_menu = $navigation->build('menu-1', [
         <div id="navigation-wrapper-main" class="md:w-[95%] mx-auto flex justify-between items-center md:h-24">
 				<button class="openbtn  w-14 md:w-24" onclick="openNav()">☰</button>
             <div class="nav-brand text-xl text-black flex items-center">
-                <a href="<?= get_site_url(); ?>">
+                <a href="<?= get_site_url(); ?>" class="font-bembo_regular">
                     Politeunivers
                 </a>
             </div>
@@ -30,7 +30,7 @@ $primary_menu = $navigation->build('menu-1', [
 		<ul id="primary-menu"style="display:flex;">
 					<?php foreach ( $navigation->all() as $item ) : ?>
 						<li class="list-items-parents text-black hover:underline <?=  ($item->children) ? 'dropdown-menu-shop' : '' ?> mx-3">
-							<a href="<?php echo $item->url; ?>" class="hover:underline">
+							<a href="<?php echo esc_url($item->url); ?>" class="hover:underline font-bembo_regular">
 								<?php echo $item->label; ?>
 							</a>
 						</li>
@@ -39,7 +39,7 @@ $primary_menu = $navigation->build('menu-1', [
 	<?php endif; ?>
         <div class="nav-tool w-14 md:w-24 flex items-center justify-end">
                 <a class="cart-icon relative px-2 py-2" href="<?= wc_get_cart_url(); ?>">
-                    <img class="style-svg" src="<?= get_template_directory_uri() . '/asset/icons/cart.svg'; ?>" alt="Cart" />
+                    <img width="20px" class="style-svg" src="https://politeunivers.com/wp-content/uploads/2024/11/grocery-store.png" alt="Cart" data-skip-lazy />
                     <span class="badge badge-cart absolute top-0 right-0">
                         <?= ($woocommerce->cart->cart_contents_count != 0 ? $woocommerce->cart->cart_contents_count : ''); ?>
                     </span>
@@ -48,13 +48,13 @@ $primary_menu = $navigation->build('menu-1', [
         </div>
 
 		<?php if ( $navigation->isNotEmpty() ) : ?>
-				<ul id="primary-menu-overlay" class="w-full grid grid-rows-4 grid-cols-12 h-72 hidden transition-all">
+				<ul id="primary-menu-overlay" class="w-full grid grid-rows-4 grid-cols-12 hidden transition-all">
 					<?php foreach ( $navigation->all() as $item ) : ?>
 							<?php if ( $item->children ) : ?>
-								<ul class="row-span-2 col-span-3 grid grid-rows-4 grid-cols-2 text-black p-6">
+								<ul class="row-span-2 overlay-left-menu-items col-span-3 grid grid-rows-4 grid-cols-2 text-black">
 									<?php foreach ( $item->children as $child ) : ?>
-										<li class="hover:underline">
-											<a href="<?php echo $child->url; ?>">
+										<li class="hover:underline font-bembo_regular">
+											<a href="<?php echo esc_url($child->url); ?>">
 												<?php echo $child->label; ?>
 											</a>
 										</li>
@@ -67,7 +67,6 @@ $primary_menu = $navigation->build('menu-1', [
 						$args = array(
 							'taxonomy' => 'product_cat',
 							'number' => 5, // Limit to 5 categories
-							'exclude'  => array( get_term_by('slug', 'all-category', 'product_cat')->term_id ), // Exclude "Uncategorized"
 						);
 
 						$product_categories = get_terms($args);
@@ -79,11 +78,11 @@ $primary_menu = $navigation->build('menu-1', [
 
 								?>
 								<a href="<?php echo esc_url(home_url('/product-category/' . $category->slug)); ?>"  class=" contents w-full">
-									<div class="category-item grid grid-rows-8 h-full">
-										<div class="wrapper-image row-span-7 overflow-hidden">
-											<img class="h-full w-full object-cover bg-center" src="<?= $category_image_url?>" alt="<?= $category->name ?>">
+									<div class="category-item grid grid-rows-9  h-full">
+										<div class="wrapper-image flex items-center row-span-6 overflow-hidden border border-black">
+											<img class="h-full w-full object-cover bg-center" data-skip-lazy src="<?= esc_url($category_image_url)?>" alt="<?= esc_html($category->name) ?>" loading="lazy">
 										</div>
-										<h2 class=" text-left text-black text-montserrat"> <?=$category->name?></h2>
+										<h2 class=" text-left text-black font-bembo_regular"> <?=$category->name?></h2>
 									</div>
 								</a>
 								<?php 
@@ -101,7 +100,7 @@ $primary_menu = $navigation->build('menu-1', [
 			<?php if ( $navigation->isNotEmpty() ) : ?>
 				<ul id="mobile-menu-overlay-wrapper">
 					<?php foreach ( $navigation->all() as $item ) : ?>
-						<li class="list-items-parents text-white hover:underline mx-3">
+						<li class="list-items-parents text-white hover:underline mx-3 font-bembo_regular">
 							<a href="<?php echo $item->url; ?>" class="hover:underline">
 								<?php echo $item->label; ?>
 							</a>

@@ -1,5 +1,5 @@
 #content{
-    height: 100vh;
+    min-height: 100vh;
     color: black;
 }
 
@@ -7,8 +7,7 @@
 
 .wrapper-retailers{
     width: 80%;
-    margin: 0 auto;
-    margin-top: 2rem;
+    margin: 2rem auto;
 
 }
 .retailers-headers{
@@ -23,7 +22,7 @@
 .retailers-grid{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 2rem;
+    gap: 1rem;
 }
 .header-country{
     grid-column: span 4;
@@ -31,3 +30,23 @@
     margin: 1rem 0 0 0;
 }
 
+
+.row-retailers-region p{
+	font-size:small;
+	margin: 1rem 0;
+}
+
+.row-retailers-region p a:hover{
+	text-decoration : underline;
+	color: grey;
+}
+
+
+@media screen and (max-width: 768px){
+	.row-retailers-region{
+		grid-column: span 2;
+	}
+	.row-retailers-region p a{
+		text-decoration: underline;
+	}
+}

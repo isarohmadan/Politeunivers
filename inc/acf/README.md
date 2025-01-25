@@ -1,27 +1,31 @@
-# Advanced Custom Fields
+# Advanced Custom Fields Pro
 
-Welcome to the official Advanced Custom Fields repository on GitHub. ACF is a WordPress plugin used to take full control of your edit screens & custom field data.
+![GitHub followers](https://img.shields.io/github/followers/wordpress-premium?style=flat&color=lightblue) ![GitHub Repo stars](https://img.shields.io/github/stars/wordpress-premium/advanced-custom-fields-pro?style=flat&color=orange) ![GitHub forks](https://img.shields.io/github/forks/wordpress-premium/advanced-custom-fields-pro?style=flat) ![GitHub last commit](https://img.shields.io/github/last-commit/wordpress-premium/advanced-custom-fields-pro)
 
-## Documentation
+**[Advanced Custom Fields Pro](https://www.advancedcustomfields.com/pro/)** (ACF Pro) is a popular WordPress plugin that allows developers to create custom fields and content for their websites easily. **This is the fully activated [pro version](https://www.advancedcustomfields.com/pro/), which has been thoroughly checked for malware and is safe to use.** 
 
-Do you need help getting started with ACF, or do you have questions about one of the ACF features? You can [search through our documentation here](https://www.advancedcustomfields.com/resources/). If you don't find the answers you're looking for, you can start a new forum thread in the [support forum](https://support.advancedcustomfields.com/) or contact our [support team](https://www.advancedcustomfields.com/contact/)
+## 🛠️ Use
 
-If you've got feedback or a feature suggestion for ACF, please use our [feedback board](https://www.advancedcustomfields.com/feedback/)
+This is the **fully activated pro version ("nulled")** of the plugin, brought to you by [wordpress-premium.net](https://www.wordpress-premium.net). We thoroughly **scanned and cleaned it of any malware** and released it to give users access to try this plugin before purchasing it or conducting technical research. If you intend to use this plugin for your website, **you must** [purchase a license](https://rankmath.com/offer/) through the author's official website.
 
-## Support
+**Note:** Using activated ("nulled") software may violate the original author's licensing terms, and you may not receive official support or updates. 
 
-This repository is not suitable for support. Please don't use our issue tracker for support requests, but for core issues only. 
-Support can take place in the appropriate channels:
+##  🤑 Donate
 
-* Community forum
-* Email based ticket system 
+If you appreciate [WordPress Premium's](https://www.wordpress-premium.net/) service and would like to keep getting up-to-date, malware-free pro and premium plugins, please consider [leaving a tip via PayPal](https://www.paypal.com/paypalme/thaikolja).
 
-These channels can be accessed from our [support website](https://support.advancedcustomfields.com/).
+## ✨ Changelog
 
-## Contributing
+### v6.3.10
 
-If you have a patch, or stumbled upon an issue with ACF core, you can contribute this back to the code. Please create a new github issue with as much information as possible, and a PR if appropriate.
+**Release Date:** October 29th, 2024
 
-## Translations
+- **Security** - Setting a metabox callback for custom post types and taxonomies now requires being an admin, or super admin for multisite installs
+- **Security** - Field specific ACF nonces are now prefixed, resolving an issue where third party nonces could be treated as valid for AJAX calls
+- **Enhancement** - A new “Close and Add Field” option is now available when editing a field group, inserting a new field inline after the field being edited
+- **Enhancement** - ACF and ACF PRO now share the same plugin updater for improved reliability and performance
+- **Fix** - Exporting post types and taxonomies containing metabox callbacks now correctly exports the user defined callback
 
-If you're looking to translate ACF, you can submit new PRO translations via a PR on this repo. Any strings from the free version are imported from [translate.wordpress.org](https://translate.wordpress.org/projects/wp-plugins/advanced-custom-fields/stable/). For more information, please view our [translation guide](https://www.advancedcustomfields.com/resources/how-to-help-translate-acf-into-other-languages/)
+---
+
+For other version changelogs, check the [official website](https://www.advancedcustomfields.com/changelog/).

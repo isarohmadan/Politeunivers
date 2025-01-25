@@ -1,5 +1,5 @@
-=== Advanced Custom Fields (ACF) ===
-Contributors: deliciousbrains, wpengine, elliotcondon, mattshaw, lgladdy, antpb, johnstonphilip, dalewilliams, polevaultweb
+=== Advanced Custom Fields PRO ===
+Contributors: elliotcondon
 Tags: acf, fields, custom fields, meta, repeater
 Requires at least: 6.0
 Tested up to: 6.6
@@ -92,16 +92,6 @@ From your WordPress dashboard
 
 
 == Changelog ==
-
-= 6.3.10.2 =
-*Release Date 29th October 2024*
-
-* Fix - ACF Free no longer causes a fatal error when any unsupported legacy ACF addons are active
-
-= 6.3.10.1 =
-*Release Date 29th October 2024*
-
-* Fix - ACF Free no longer causes a fatal error when WPML is active
 
 = 6.3.10 =
 *Release Date 29th October 2024*

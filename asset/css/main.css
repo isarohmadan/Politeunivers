@@ -1,5 +1,63 @@
 /* DEFAULT CODE */
 
+@font-face {
+    font-family: 'bembo_regular';
+    src: url('../fonts/bembo__monotype_bold-webfont.woff2') format('woff2'),
+         url('../fonts/bembo__monotype_bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat-italic';
+    src: url('../fonts/Montserrat-Italic-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../fonts/Montserrat-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.font-bembo_regular {
+    font-family: 'bembo_regular', sans-serif;
+}
+.font-montserrat {
+    font-family: 'Montserrat', sans-serif;
+}
+.font-montserrat-italic {
+    
+    font-family: 'Montserrat-italic', sans-serif;
+}
+
+
+#colophon{
+	background: #000
+}
+
+.width-in-about{
+	width: 96%;
+	margin:0 auto;
+}
+
+.width-in-fp{
+	width: 96%;
+	margin: 0 auto;
+}
+
+
+
+
+.text-black{
+    color: black;
+}
+.text-white{
+    color: white;
+}
+
 
 * {
     box-sizing: border-box;
@@ -8,11 +66,13 @@
     display: none;
 }
 body {
-    font-family: 'bembo_regular', sans-serif;
+	font-family:'bembo_regular';
     margin: 0;
     padding: 0;
     overflow: hidden;
 }
+
+
 
 /* scroll hidden */
 
@@ -33,6 +93,10 @@ html {
     position: -webkit-sticky; /* Safari */
     background-color: white; /* Agar latar belakang tidak transparan */
 }
+.overlay-left-menu-items{
+	padding: 0.8rem 2rem;
+}
+
 #primary-menu{
     display: flex;
     height: 80%;
@@ -40,14 +104,16 @@ html {
     align-items: center;
 }
 
+
 .category-item{
-    flex: 1;
+	   flex: 1;
+}
+.wrapper-image{
+    padding: 8px;
 }
 
-
-
-
 /* swiper */
+
 .swiper-container {
     width: 100%;
     height: 100%;
@@ -74,9 +140,22 @@ html {
     display: none;
     opacity: 0;
 }
+
+.jumbotron-blog-info .caption  {
+	padding: 1.75rem !important;
+}
+
+.brief-description > p > a{
+	text-decoration: underline
+}
+
 .show{
     display: grid;
     opacity: 100%;
+}
+
+.jumbotron-blog-info .caption {
+	padding: 0 1.2rem;
 }
 
 
@@ -95,21 +174,15 @@ html {
 }
 
 
-
-
-.jumbotron-blog-info{
-    height: 100vh;
+.main-jumbotron-video{
+	margin: 1.75rem auto ;
 }
-
-
-
-
-
-
 
 /* Ganti warna tombol "Place Donation" */
 .woocommerce .checkout #place_order {
     background-color: #000; /* Warna latar tombol */
+	padding : 0.2rem 1rem;
+	border-radius: 0 !important;
     color: #FFFFFF; /* Warna teks tombol */
     border: none; /* Menghapus border jika diinginkan */
 }
@@ -118,6 +191,12 @@ html {
     background-color: #000; /* Warna tombol saat di-hover */
 }
 
+
+.jumbotron-union .mini-jumbotron .description p:hover{
+	text-decoration:underline;
+}
+
+
 .woocommerce-cart-form{
     width: 100%;
 }
@@ -125,23 +204,19 @@ html {
     width: 80%;
 }
 
-
-
 #content
 {
     padding-top:5rem
 }
 
-/* footer menus */
 #footer-menu{
-    display: flex;
-    visibility: hidden;
-    align-items: center;
+	display:flex;
+	flex-wrap:wrap;
 }
+
 #footer-menu * {
     font-family: 'Montserrat', sans-serif;
-    padding: 0.5rem 1.5rem;
-    font-size: 0.9rem;
+    font-size: 0.7rem;
     font-weight: bold;
 }
 
@@ -150,11 +225,12 @@ html {
 }
 
 
-/* if mini jumbotron was hovered then element inside it will be show an underline */
 
+.cards-gallery{
+	margin: 2.5rem auto;
+}
 
 .banner-about{
-    width: 90%;
     margin: 0 auto;
     height: 40rem;
     position: relative;
@@ -174,10 +250,23 @@ html {
     margin: 2rem;
 }
 
+.description-front-page-jumbotron{
+	display: block
+}
+
+.description-front-page-jumbotron > *{
+	color:black;
+}
+
+.description-front-page-jumbotron > h2:hover{
+	text-decoration:underline;
+}
+
 
 .main-about-jumbotron{
-   width: 90% !important;
-   margin: 1rem auto;
+	height:100vh;
+	
+   margin: 2.5rem auto;
    display: grid;
    grid-template-columns: 5fr 6fr;
 }
@@ -211,7 +300,11 @@ html {
     color: #666;
 }
 
-
+.main-about-jumbotron .image-about-jumbotron img{
+	width:100%;
+	height:100%;
+	object-fit:cover;
+}
 
 #read-more-btn{
     background: none;
@@ -220,7 +313,7 @@ html {
     cursor: pointer;
     text-align: left;
     border: none;
-    display: none;
+    display:none;
 }
 .text-short{
     transition: max-height 0.5s ease-in-out;
@@ -229,8 +322,13 @@ html {
     transition: max-height 0.5s ease-in-out;
 }
 
+
 #banner_promotion_2 {
     display: none;
+}
+
+#primary-menu-overlay{
+	height: 16rem;
 }
 
 /* Input Fields */
@@ -251,8 +349,6 @@ html {
     outline: none;
     box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
 }
-
-
 
 
 .select2-container .select2-selection--single {
@@ -285,48 +381,102 @@ html {
 .woocommerce-validated .select2-selection {
     border-color: #6dc22e;
 }
-#add_payment_method #payment div.payment_box, .woocommerce-cart #payment div.payment_box, .woocommerce-checkout #payment div.payment_box{
-    margin: 1em 1rem !important;
+
+.product-image-wrapper{
+	height:100%;
+	width:auto;
 }
 
+	.header-description{
+		    font-size: 2.25rem;
+    		line-height: 2.5rem;
+	}	
+		
+	.brief-description{
+			font-size: 0.8rem;
+    		line-height: 0.8rem;
+	}
 
-@media screen and (min-device-width: 768) and (max-width: 980px) {
-    .jumbotron-blog-info{
-        height: auto;
-    }
-  }
 
-
+/* Target all payment method list items */
+.wc_payment_methods li {
+  margin-bottom: 1rem;  /* Add spacing between payment options */
+  border: 1px solid #e0e0e0; /* Add a subtle border for separation */
+  border-radius: 4px; /* Add rounded corners for a softer look */
+  background-color: #f5f5f5; /* Set a light background color */
+  display: flex; /* Allow horizontal layout for label and image(s) */
+}
+#payment .payment_methods li img{
+  float:none;
+  margin-left:1em;
+  display:inline;
+}
+#payment .payment_methods li svg{
+  float:none !important;
+  margin-left:1em;
+  display:inline;
+}
 
 @media screen and (max-width: 768px) {
-    #read-more-btn {
-        display: none; /* Sembunyikan tombol di layar lebih besar */
+	  .wc_payment_methods li .payment_box {
+    display: none !important;
+  }
+	
+    .mini-jumbotron{
+        max-height: 100vh;
     }
+	
+	.entry-content, .entry-header{
+		margin: 0 1.5rem;
+	}
+	
+	.lookbooks .entry-header{
+		margin: 0;
+	}
 
-    .swiper{
+		
+	.header-description{
+		    font-size: 1.25rem;
+    		line-height: 1.5rem;
+	}	
+	
+	.brief-description{
+			font-size: 0.7rem;
+    		line-height: 0.7rem;
+	}
+	
+	
+	.width-in-fp{
+		width: 100%;
+
+	}
+
+	
+	.width-in-about{
+		width:100%;
+	}
+
+	.description-front-page-jumbotron{
+		display: none;
+	}
+	.swiper{
         height: 100% !important;
     }
-
-    .text-short {
-        max-height: 120px;
-        overflow: hidden;
-        transition: max-height 0.5s ease-in-out;
+	.text-short {
+		max-height: 120px;
+		overflow: hidden;
+		transition: max-height 0.5s ease-in-out;
     }
     #read-more-btn {
         display: block; /* Tampilkan tombol hanya di layar kecil */
     }
-
-    .mini-jumbotron{
-        max-height: 100vh;
-    }
-
-    .banner-about{
-        height: 100vh;
-        width: 100%;
+	    .banner-about{
+        width:100%;
     }
     .main-about-jumbotron{
         grid-template-columns: 2fr 0;
         min-width: 100%;
+		height : 100%;
         gap: 2rem 0;
      }
      .image-about-jumbotron{
@@ -352,15 +502,14 @@ html {
         margin: 2rem;
     }
 
-
-    
+	
 .openbtn{
     font-size: larger;
 }
 
     #content
     {
-        padding-top:2rem
+        padding-top:4rem
     }
     #navigation-wrapper-main{
         display: flex;
@@ -376,9 +525,12 @@ html {
         opacity: 0;
         visibility: hidden;
         transition: 0.3s ease-in-out;
-        z-index: 999;
+        z-index: 99 !important;
         background-color: black;
     }
+	.woo_sc_price_btn_popup.woo_sc_btn_popup{
+		z-index:unset !important;
+	}
     #mobile-menu-overlay.active {
         top: 0;
         opacity: 1;
@@ -410,9 +562,9 @@ html {
 
     .closebtn{
         position: absolute;
-        bottom: 0;
+        top: 3rem;
         right: 0;
-        margin: 1.5rem;
+        margin: 3rem;
     }
 
 
@@ -452,16 +604,30 @@ html {
     #banner_promotion_2 {
         display: none;
     }
+	
+	#colophon{
+		height: 30rem;
+	}
+	#colophon div{
+		flex-direction:column-reverse;
+		justify-items:center;
+		align-items:center;
+	}
+	
+	
+	/* footer menus */
+	#footer-menu{
+		display: flex;
+		align-items: center;
+		width : 50%;
+		gap: 2rem;
+		flex-direction:column;
+	}
 
 
 }
 
-@media screen and (max-width: 768px){
-    .jumbotron-blog-info{
-        height: auto;
-        grid: 1fr 1fr;
-    }    
-}
+
 
 /* Media Query  */
 
@@ -473,7 +639,7 @@ html {
     .openbtn{
         display: none;
     }
-    .text-full {
+	.text-full {
         max-height: 1000px; /* Batasi tinggi untuk versi singkat hanya di layar kecil */
         overflow: visible;
         transition: max-height 0.5s ease-in-out;
@@ -483,6 +649,8 @@ html {
     }
     #footer-menu{
         visibility: visible;
+		width : 100%;
+		gap : 0 0.7rem;
     }
     #banner_promotion_1 {
         display: none;

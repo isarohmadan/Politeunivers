@@ -1,4 +1,6 @@
-
+document.addEventListener('DOMContentLoaded', function() {
+document.getElementById('read-more-btn').addEventListener('click', toggleReadMore);
+})
 
 function toggleReadMore() {
     const aboutText = document.getElementById('about-description-wrapper');
@@ -20,5 +22,5 @@ function toggleReadMore() {
      
   }
 
-document.getElementById('read-more-btn').addEventListener('click', toggleReadMore);
+
 
